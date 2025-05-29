@@ -1,3 +1,10 @@
+---
+layout: default
+title: Julian's vegane Rezeptsammlung
+---
+
+<link rel="stylesheet" href="/assets/css/style.css">
+
 # Julian's vegane Rezeptsammlung
 
 ## Inhaltsverzeichnis
