@@ -12,6 +12,7 @@ title: Julian's vegane Rezeptsammlung
 ### Vorspeisen & Snacks
 
 ### Hauptgerichte
+- [Semmelknödel](rezepte/hauptgerichte/semmelknoedel.md)
 - [Spaghetti mit Ingwer Walnuss-Basilikum-Pesto](rezepte/hauptgerichte/ingwer-spaghetti.md)
 
 ### Desserts
