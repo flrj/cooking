@@ -12,6 +12,7 @@ title: Julian's vegane Rezeptsammlung
 ### Vorspeisen & Snacks
 
 ### Hauptgerichte
+- [Spaghetti mit Ingwer Walnuss-Basilikum-Pesto](rezepte/hauptgerichte/ingwer-spaghetti.md)
 
 ### Desserts
 - [Chia Pudding Basis](rezepte/desserts/chia_pudding.md)
