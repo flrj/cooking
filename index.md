@@ -13,7 +13,7 @@ title: Julian's vegane Rezeptsammlung
 
 ### Hauptgerichte
 - [Semmelknödel](rezepte/hauptgerichte/semmelknoedel.md)
-- [Spaghetti mit Ingwer Walnuss-Basilikum-Pesto](rezepte/hauptgerichte/ingwer-spaghetti.md)
+- [Spaghetti mit Ingwer Walnuss-Basilikum-Pesto](rezepte/hauptgerichte/ingwer_spaghetti.md)
 
 ### Desserts
 - [Chia Pudding Basis](rezepte/desserts/chia_pudding.md)
