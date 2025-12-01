@@ -1,0 +1,30 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files for macOS metadata
+.Spotlight-V100
+.Trashes
+
+# Icon must end with two \r
+Icon
+
+# macOS directory attributes
+**/.DocumentRevisions-V100
+**/.fseventsd
+**/.TemporaryItems
+**/.VolumeIcon.icns
+**/.com.apple.timemachine.donotpresent
+
+# AFP share data
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+
+# iCloud generated files
+*.icloud
