@@ -12,6 +12,7 @@ title: Julian's vegane Rezeptsammlung
 ### Vorspeisen & Snacks
 
 ### Hauptgerichte
+- [Mapo Tofu](rezepte/hauptgerichte/mapo_tofu.md)
 - [Semmelknödel](rezepte/hauptgerichte/semmelknoedel.md)
 - [Spaghetti mit Ingwer Walnuss-Basilikum-Pesto](rezepte/hauptgerichte/ingwer_spaghetti.md)
 
