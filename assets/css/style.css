@@ -96,3 +96,18 @@ th, td {
 th {
   background-color: var(--base2);
 }
+
+#filter-toggle {
+  background-color: var(--base2);
+  color: var(--base01);
+  border: 1px solid var(--base1);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+#filter-toggle:hover {
+  background-color: var(--base1);
+}

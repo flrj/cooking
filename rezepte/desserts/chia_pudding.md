@@ -1,3 +1,7 @@
+---
+cooked: true
+---
+
 # Chia Pudding Basis
 
 ## Zutaten

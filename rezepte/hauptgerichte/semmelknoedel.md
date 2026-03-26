@@ -1,3 +1,7 @@
+---
+cooked: true
+---
+
 # Semmelknödel
 
 ## Zutaten für 4 Personen

@@ -1,3 +1,7 @@
+---
+cooked: true
+---
+
 # Mapo Tofu
 
 ## Zutaten für 4 Personen

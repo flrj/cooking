@@ -1,3 +1,7 @@
+---
+cooked: true
+---
+
 # Spaghetti mit Ingwer Walnuss-Basilikum-Pesto
 
 ## Zutaten für 4 Personen
