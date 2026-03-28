@@ -5,25 +5,49 @@ title: Julian's vegane Rezeptsammlung
 
 <link rel="stylesheet" href="/assets/css/style.css">
 
-# Julian's vegane Rezeptsammlung
+<h1>Julian's vegane Rezeptsammlung</h1>
 
 <button id="filter-toggle">Alle anzeigen</button>
 
-## Inhaltsverzeichnis
+<h2>Inhaltsverzeichnis</h2>
 
-### Vorspeisen & Snacks
+<h3>Vorspeisen & Snacks</h3>
 
-### Hauptgerichte
-- <span data-cooked="true">[Mapo Tofu](rezepte/hauptgerichte/mapo_tofu.md)</span>
-- <span data-cooked="true">[Semmelknödel](rezepte/hauptgerichte/semmelknoedel.md)</span>
-- <span data-cooked="true">[Spaghetti mit Ingwer Walnuss-Basilikum-Pesto](rezepte/hauptgerichte/ingwer_spaghetti.md)</span>
+<h3>Hauptgerichte</h3>
+<ul>
+{% for rezept in site.recipes %}
+{% if rezept.category == "hauptgerichte" %}
+<li data-cooked="{{ rezept.cooked }}"><a href="{{ rezept.url }}">{{ rezept.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
 
-### Desserts
-- <span data-cooked="true">[Chia Pudding Basis](rezepte/desserts/chia_pudding.md)</span>
+<h3>Desserts</h3>
+<ul>
+{% for rezept in site.recipes %}
+{% if rezept.category == "desserts" %}
+<li data-cooked="{{ rezept.cooked }}"><a href="{{ rezept.url }}">{{ rezept.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
 
-### Backrezepte
+<h3>Backrezepte</h3>
+<ul>
+{% for rezept in site.recipes %}
+{% if rezept.category == "backrezepte" %}
+<li data-cooked="{{ rezept.cooked }}"><a href="{{ rezept.url }}">{{ rezept.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
 
-### Getränke
+<h3>Getränke</h3>
+<ul>
+{% for rezept in site.recipes %}
+{% if rezept.category == "getraenke" %}
+<li data-cooked="{{ rezept.cooked }}"><a href="{{ rezept.url }}">{{ rezept.title }}</a></li>
+{% endif %}
+{% endfor %}
+</ul>
 
 <script>
 (function() {

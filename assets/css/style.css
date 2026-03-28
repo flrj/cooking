@@ -111,3 +111,29 @@ th {
 #filter-toggle:hover {
   background-color: var(--base1);
 }
+
+.servings {
+  color: var(--base01);
+  font-style: italic;
+}
+
+.ingredients li,
+.notes li,
+.source li {
+  margin-bottom: 0.5rem;
+}
+
+.ingredients li {
+  list-style: none;
+  margin-left: -1rem;
+}
+
+.ingredients li::before {
+  content: "•";
+  color: var(--green);
+  margin-right: 0.5rem;
+}
+
+.instructions li {
+  margin-bottom: 1rem;
+}

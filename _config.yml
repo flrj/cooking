@@ -1,2 +1,7 @@
 title: ""
 show_downloads: false
+
+collections:
+  recipes:
+    output: true
+    permalink: /rezepte/:path/
