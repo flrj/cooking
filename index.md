@@ -1,76 +1,52 @@
 ---
 layout: default
-title: Julian's vegane Rezeptsammlung
+title: Julians vegane Rezeptsammlung
 ---
 
-<link rel="stylesheet" href="/assets/css/style.css">
+<div class="index-head">
+    <h1>Rezepte</h1>
+    <button type="button" id="filter-toggle" aria-pressed="false">Auch ungekochte zeigen</button>
+</div>
 
-<h1>Julian's vegane Rezeptsammlung</h1>
-
-<button id="filter-toggle">Alle anzeigen</button>
-
-<h2>Inhaltsverzeichnis</h2>
-
-<h3>Vorspeisen & Snacks</h3>
-
-<h3>Hauptgerichte</h3>
-<ul>
-{% for rezept in site.recipes %}
-{% if rezept.category == "hauptgerichte" %}
-<li data-cooked="{{ rezept.cooked }}"><a href="{{ rezept.url }}">{{ rezept.title }}</a></li>
+{% assign categories = "vorspeise:Vorspeisen & Snacks,hauptgerichte:Hauptgerichte,desserts:Desserts,backrezepte:Backrezepte,getraenke:Getränke" | split: "," %}
+{% for entry in categories %}
+{% assign parts = entry | split: ":" %}
+{% assign recipes = site.recipes | where: "category", parts[0] | sort: "title" %}
+{% if recipes.size > 0 %}
+<section class="category" data-category>
+    <h2>{{ parts[1] }}</h2>
+    <ul class="menu">
+        {% for rezept in recipes %}
+        <li data-cooked="{{ rezept.cooked | default: false }}">
+            <a href="{{ rezept.url | relative_url }}">{{ rezept.title }}</a>
+            {% unless rezept.cooked %}<span class="untested">noch nicht gekocht</span>{% endunless %}
+        </li>
+        {% endfor %}
+    </ul>
+</section>
 {% endif %}
 {% endfor %}
-</ul>
-
-<h3>Desserts</h3>
-<ul>
-{% for rezept in site.recipes %}
-{% if rezept.category == "desserts" %}
-<li data-cooked="{{ rezept.cooked }}"><a href="{{ rezept.url }}">{{ rezept.title }}</a></li>
-{% endif %}
-{% endfor %}
-</ul>
-
-<h3>Backrezepte</h3>
-<ul>
-{% for rezept in site.recipes %}
-{% if rezept.category == "backrezepte" %}
-<li data-cooked="{{ rezept.cooked }}"><a href="{{ rezept.url }}">{{ rezept.title }}</a></li>
-{% endif %}
-{% endfor %}
-</ul>
-
-<h3>Getränke</h3>
-<ul>
-{% for rezept in site.recipes %}
-{% if rezept.category == "getraenke" %}
-<li data-cooked="{{ rezept.cooked }}"><a href="{{ rezept.url }}">{{ rezept.title }}</a></li>
-{% endif %}
-{% endfor %}
-</ul>
 
 <script>
-(function() {
-  var showAll = false;
-  var toggle = document.getElementById('filter-toggle');
+(function () {
+    var showAll = false;
+    var toggle = document.getElementById('filter-toggle');
 
-  function updateVisibility() {
-    var items = document.querySelectorAll('[data-cooked]');
-    items.forEach(function(item) {
-      if (showAll) {
-        item.style.display = '';
-      } else {
-        item.style.display = item.getAttribute('data-cooked') === 'true' ? '' : 'none';
-      }
+    function update() {
+        document.querySelectorAll('[data-cooked]').forEach(function (item) {
+            item.hidden = !showAll && item.getAttribute('data-cooked') !== 'true';
+        });
+        document.querySelectorAll('[data-category]').forEach(function (section) {
+            section.hidden = !section.querySelector('[data-cooked]:not([hidden])');
+        });
+        toggle.setAttribute('aria-pressed', showAll);
+        toggle.textContent = showAll ? 'Nur gekochte zeigen' : 'Auch ungekochte zeigen';
+    }
+
+    toggle.addEventListener('click', function () {
+        showAll = !showAll;
+        update();
     });
-    toggle.textContent = showAll ? 'Nur Gekochte anzeigen' : 'Alle anzeigen';
-  }
-
-  toggle.addEventListener('click', function() {
-    showAll = !showAll;
-    updateVisibility();
-  });
-
-  updateVisibility();
+    update();
 })();
 </script>

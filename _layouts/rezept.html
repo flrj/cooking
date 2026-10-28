@@ -1,0 +1,64 @@
+---
+layout: default
+---
+<article class="recipe">
+    <p class="back"><a href="{{ '/' | relative_url }}">Zurück zur Übersicht</a></p>
+
+    <header class="recipe-head">
+        <h1>{{ page.title }}</h1>
+        {% if page.servings %}
+        <div class="servings" data-base="{{ page.servings }}">
+            <span class="servings-label">Für</span>
+            <span class="servings-controls" hidden>
+                <button type="button" class="servings-step" data-step="-1" aria-label="Eine Person weniger">&minus;</button>
+                <output class="servings-count" aria-live="polite">{{ page.servings }}</output>
+                <button type="button" class="servings-step" data-step="1" aria-label="Eine Person mehr">+</button>
+            </span>
+            <span class="servings-static">{{ page.servings }}</span>
+            <span class="servings-unit">{% if page.servings == 1 %}Person{% else %}Personen{% endif %}</span>
+        </div>
+        {% endif %}
+    </header>
+
+    <div class="recipe-body">
+        <section class="recipe-ingredients" aria-labelledby="zutaten">
+            <h2 id="zutaten">Zutaten</h2>
+            <ul class="ingredients">
+                {% for ingredient in page.ingredients %}
+                <li{% if ingredient.amount != "" and ingredient.amount %} data-amount="{{ ingredient.amount }}"{% endif %}>
+                    <span class="amount">{% if ingredient.amount != "" %}{{ ingredient.amount }}{% endif %}{% if ingredient.unit != "" and ingredient.unit %}&nbsp;{{ ingredient.unit }}{% endif %}</span>
+                    <span class="item">{{ ingredient.item }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="recipe-steps" aria-labelledby="zubereitung">
+            <h2 id="zubereitung">Zubereitung</h2>
+            <ol class="instructions">
+                {% for step in page.instructions %}
+                <li>{{ step }}</li>
+                {% endfor %}
+            </ol>
+
+            {% if page.notes and page.notes.size > 0 %}
+            <h2>Notizen</h2>
+            <ul class="notes">
+                {% for note in page.notes %}
+                <li>{{ note }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
+            {% if page.source and page.source.size > 0 %}
+            <h2>Quelle</h2>
+            <ul class="source">
+                {% for src in page.source %}
+                <li>{% if src contains 'http' %}<a href="{{ src }}" target="_blank" rel="noopener">{{ src }}</a>{% else %}{{ src }}{% endif %}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </section>
+    </div>
+</article>
+<script src="{{ '/assets/js/servings.js' | relative_url }}" defer></script>
